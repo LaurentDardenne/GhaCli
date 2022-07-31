@@ -1,0 +1,62 @@
+{
+  "$schema": "https://aka.ms/Crescendo/Schema.json",
+  "Commands": [
+    {
+
+    "Verb": "Start",
+    "Noun": "GithubWorkflow",
+    "OriginalName": "gh",
+    "OriginalCommandElements": [
+      "workflow",
+      "run"
+    ],
+    "Parameters": [  
+      {
+        "Name":"WorkflowName",
+        "OriginalName": "",
+        "ParameterType": "string",
+        "Position": 0,
+        "Description": "workflow name",
+        "DefaultValue": null,
+        "Mandatory": true,
+        "OriginalText": null,
+        "DefaultMissingValue": null,
+        "ApplyToExecutable": false,
+        "AdditionalParameterAttributes": null,
+        "ParameterSetName": null,
+        "Aliases": [
+          "Name"
+        ],
+        "OriginalPosition": 3,
+        "ValueFromPipeline": false,
+        "ValueFromPipelineByPropertyName": false,
+        "ValueFromRemainingArguments": false,
+        "NoGap": false
+      }
+    ],
+    "Platform": [
+      "Windows",
+      "Linux",
+      "MacOS"
+    ],
+    "Elevation": null,
+    "Aliases": [
+      "GhaRun"
+    ],
+    "DefaultParameterSetName": null,
+    "SupportsShouldProcess": false,
+    "ConfirmImpact": null,
+    "SupportsTransactions": false,
+    "NoInvocation": false,
+    "Description": "This command will trigger GitHub Actions to run a given workflow file. The given workflow file must support a workflow_dispatch 'on' trigger in order to be run in this way.",
+    "Usage": null,
+    "Examples": [],
+    "OriginalText": null,
+    "HelpLinks": [
+      "https://cli.github.com/manual/gh_workflow_run"
+    ],
+    "OutputHandlers": null,
+    "FunctionName": "Start-GithubWorkflow"
+   }
+ ]
+}
