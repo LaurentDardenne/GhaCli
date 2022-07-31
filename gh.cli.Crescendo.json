@@ -57,6 +57,61 @@
     ],
     "OutputHandlers": null,
     "FunctionName": "Start-GithubWorkflow"
-   }
+    },
+    {
+
+      "Verb": "Get",
+      "Noun": "GithubWorkflow",
+      "OriginalName": "gh",
+      "OriginalCommandElements": [
+        "workflow",
+        "list"
+      ],
+      "Parameters": [  
+        {
+          "Name":"All",
+          "OriginalName": "",
+          "ParameterType": "string",
+          "Position": 0,
+          "Description": "Show all workflows, including disabled workflows.",
+          "DefaultValue": null,
+          "Mandatory": true,
+          "OriginalText": null,
+          "DefaultMissingValue": null,
+          "ApplyToExecutable": false,
+          "AdditionalParameterAttributes": null,
+          "ParameterSetName": null,
+          "Aliases": null,
+          "OriginalPosition": 3,
+          "ValueFromPipeline": false,
+          "ValueFromPipelineByPropertyName": false,
+          "ValueFromRemainingArguments": false,
+          "NoGap": false
+        }
+      ],
+      "Platform": [
+        "Windows",
+        "Linux",
+        "MacOS"
+      ],
+      "Elevation": null,
+      "Aliases": [
+        "GhaList"
+      ],
+      "DefaultParameterSetName": null,
+      "SupportsShouldProcess": false,
+      "ConfirmImpact": null,
+      "SupportsTransactions": false,
+      "NoInvocation": false,
+      "Description": "List workflow files, hiding disabled workflows by default.",
+      "Usage": null,
+      "Examples": [],
+      "OriginalText": null,
+      "HelpLinks": [
+        "https://cli.github.com/manual/gh_workflow_list"
+      ],
+      "OutputHandlers": null,
+      "FunctionName": "Get-GithubWorkflow"
+      }    
  ]
 }
