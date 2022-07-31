@@ -1,0 +1,21 @@
+https://github.com/PowerShell/Crescendo  You cannot call a method on a null-valued expression.
+
+https://cli.github.com/manual/gh_workflow_run
+
+gh workflow run [<workflow-id> | <workflow-name>] [flags]
+
+gh workflow run
+
+$Command = New-CrescendoCommand -Verb Start -Noun GithubWorkflow
+$Command = $Command | ConvertTo-Json
+
+$Parameter = New-ParameterInfo -Name Name -OriginalName workflow run
+$Parameter = $Parameter | ConvertTo-Json
+
+$Usage = New-UsageInfo -usage 'Create a workflow_dispatch event for a given workflow.'
+
+Export-CrescendoModule -ConfigurationFile 'gh.cli.Crescendo.json' -ModuleName 'RemoteComputer.psm1'
+
+https://cli.github.com/manual/gh_api
+gh api  -H "Accept: application/vnd.github+json"  /repos/PSLDA/psmodulecache/actions/caches
+gh api --method DELETE -H "Accept: application/vnd.github+json"  /repos/PSLDA/psmodulecache/actions/caches/62
