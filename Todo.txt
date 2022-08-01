@@ -20,4 +20,3 @@ https://cli.github.com/manual/gh_api
 gh api  -H "Accept: application/vnd.github+json"  /repos/PSLDA/psmodulecache/actions/caches
 gh api --method DELETE -H "Accept: application/vnd.github+json"  /repos/PSLDA/psmodulecache/actions/caches/62
 
-test
