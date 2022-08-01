@@ -1,6 +1,7 @@
 https://github.com/PowerShell/Crescendo  You cannot call a method on a null-valued expression.
 
 https://cli.github.com/manual/gh_workflow_run
+https://docs.github.com/en/rest/actions/cache
 
 gh workflow run [<workflow-id> | <workflow-name>] [flags]
 
@@ -15,8 +16,34 @@ $Parameter = $Parameter | ConvertTo-Json
 $Usage = New-UsageInfo -usage 'Create a workflow_dispatch event for a given workflow.'
 
 Export-CrescendoModule -ConfigurationFile 'gh.cli.Crescendo.json' -ModuleName 'RemoteComputer.psm1'
+cd C:\Users\$env:USERNAME\Documents\Projets\GhaCli\
+del ghacli.ps*
+Export-CrescendoModule -ConfigurationFile 'gh.cli.Crescendo.json' -ModuleName 'GhaCli'
+ipmo .\GhaCli.psd1
+Get-GithubActionCache  /repos/PSLDA/psmodulecache/actions/caches
+
 
 https://cli.github.com/manual/gh_api
+https://docs.github.com/en/rest/actions/cache
+Function New-GithubActionFunction {
+    param ($owner, $repo)
+
+    ${Function:Get-GithubActionCache}=.{
+        Return {
+            Write-warning "gh api  -H 'Accept: application/vnd.github+json'  /repos/$Owner/$Repo/actions/caches"
+           gh api  -H "Accept: application/vnd.github+json"  /repos/$Owner/$Repo/actions/caches
+        }.GetNewClosure()
+    }
+
+    ${Function:Remove-GithubActionCache}=.{
+      Return {
+        param([int]$id)
+        Write-warning "gh api --method DELETE -H 'Accept: application/vnd.github+json' /repos/$Owner/$Repo/actions/caches/$id"
+        gh api --method DELETE -H "Accept: application/vnd.github+json" /repos/$Owner/$Repo/actions/caches/$id
+      }.GetNewClosure()
+    }
+}
+
 gh api  -H "Accept: application/vnd.github+json"  /repos/PSLDA/psmodulecache/actions/caches
 gh api --method DELETE -H "Accept: application/vnd.github+json"  /repos/PSLDA/psmodulecache/actions/caches/62
 
