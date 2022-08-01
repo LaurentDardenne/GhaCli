@@ -59,7 +59,6 @@
     "FunctionName": "Start-GithubWorkflow"
     },
     {
-
       "Verb": "Get",
       "Noun": "GithubWorkflow",
       "OriginalName": "gh",
@@ -71,7 +70,7 @@
         {
           "Name":"All",
           "OriginalName": "",
-          "ParameterType": "string",
+          "ParameterType": "switch",
           "Position": 0,
           "Description": "Show all workflows, including disabled workflows.",
           "DefaultValue": null,
@@ -112,6 +111,63 @@
       ],
       "OutputHandlers": null,
       "FunctionName": "Get-GithubWorkflow"
-      }    
+    },  
+    {
+      "Verb": "Get",
+      "Noun": "GithubActionCache",
+      "OriginalName": "gh",
+      "OriginalCommandElements": [
+        "api",
+        "-H",
+        "Accept: application/vnd.github+json"
+      ],
+      "Parameters": [  
+        {
+          "Name":"RepositoryName",
+          "OriginalName": "",
+          "ParameterType": "string",
+          "Position": 0,
+          "Description": "Show all action cache for a repository (/repos/OWNER/REPO/actions/cache/usage).",
+          "DefaultValue": null,
+          "Mandatory": true,
+          "OriginalText": null,
+          "DefaultMissingValue": null,
+          "ApplyToExecutable": false,
+          "AdditionalParameterAttributes": null,
+          "ParameterSetName": null,
+          "Aliases": [
+            "Name"
+           ],
+          "OriginalPosition": 3,
+          "ValueFromPipeline": false,
+          "ValueFromPipelineByPropertyName": false,
+          "ValueFromRemainingArguments": false,
+          "NoGap": false
+        }
+      ],
+      "Platform": [
+        "Windows",
+        "Linux",
+        "MacOS"
+      ],
+      "Elevation": null,
+      "Aliases": [
+        "GhaCache"
+      ],
+      "DefaultParameterSetName": null,
+      "SupportsShouldProcess": false,
+      "ConfirmImpact": null,
+      "SupportsTransactions": false,
+      "NoInvocation": false,
+      "Description": "Get GitHub Actions cache usage for a repository.",
+      "Usage": null,
+      "Examples": [],
+      "OriginalText": null,
+      "HelpLinks": [
+        "https://docs.github.com/en/rest/actions/cache#get-github-actions-cache-usage-for-a-repository"
+      ],
+      "OutputHandlers": null,
+      "FunctionName": "Get-GithubActionCache"
+    }   
  ]
 }
